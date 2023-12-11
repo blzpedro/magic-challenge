@@ -29,13 +29,16 @@ export class SetsComponent implements OnInit {
 
   getBoosterBySet(set: Set, firstCall = true){
     this.mtgService.showSpinner()
-    this.openSnackBar('Abrindo seus boosters. Aguarde...', 'center')
     if(this.creatureCards.length >= 30 && !firstCall) {
       this._snackBar.dismiss()
       this.mtgService.hideSpinner()
       return
     }
 
+    if(!firstCall){
+      this.openSnackBar('Abrindo seus boosters. Aguarde...', 'center')
+    }
+    
     this.mtgService.getBoosterBySetId(set.code).subscribe(res => {
       const cards = res.body?.cards || []
       const filteredCreatureCards = cards?.filter(card => card.types?.includes('Creature'))
@@ -48,7 +51,6 @@ export class SetsComponent implements OnInit {
     }, (error) => {
       console.log(error)
       this.openSnackBar('Não foi possível encontrar um booster para esse set. Escolha outro.')
-      this._snackBar.dismiss()
       this.mtgService.hideSpinner()
     }, () => {
       if(this.creatureCards.length >= 30 && !firstCall){
