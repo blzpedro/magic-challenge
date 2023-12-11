@@ -1,0 +1,17 @@
+<div class="filter-box">
+  <img src="../assets/mtg-logo.png" alt="MTG Logo" width="150px">
+  <form [formGroup]="filterForm" (submit)="searchSets()">
+    <mat-form-field >
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="name">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Bloco</mat-label>
+      <mat-select required formControlName="block">
+        <mat-option *ngFor="let option of blockOptions" [value]="option.value">{{ option.label }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="filterForm.get('block')?.hasError('required')">Bloco é obrigatório.</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary">Buscar</button>
+  </form>
+</div>

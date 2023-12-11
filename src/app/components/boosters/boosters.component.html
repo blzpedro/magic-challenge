@@ -1,0 +1,20 @@
+<div>
+  <h1 class="text-primary">Suas cartas do pacote aberto</h1>
+  <section class="results-grid">
+    <ng-container *ngFor="let card of cards; let i = index">
+      <mat-card>
+          <mat-card-content>
+            <div>
+              <img src={{card.imageUrl}} alt="Imagem card">
+            </div>
+            <div>
+              <p>{{card.name}}</p>
+              <p>{{card.manaCost}}</p>
+              <p>{{card.colorIdentity}}</p>
+              <p>{{card.text}}</p>
+            </div>
+          </mat-card-content>
+        </mat-card>
+    </ng-container>
+  </section>
+</div>

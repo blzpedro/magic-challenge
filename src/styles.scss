@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { background-color: #161621; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+::ng-deep{
+  .mat-mdc-raised-button.mat-primary{
+    background-color: #c35427 !important;
+  }
+  .mdc-floating-label--float-above, .mat-mdc-select-arrow, .mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled), .mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text, .mat-primary .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-minimal::after{
+    color: #c35427 !important;
+  }
+  .mdc-line-ripple::after{
+    border-bottom-color: #c35427 !important;
+  }
+}
+
+.text-primary{
+  color: #c35427;
+}

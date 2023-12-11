@@ -1,0 +1,46 @@
+@import '../../../styles.scss';
+
+.sets-results{
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 20px;
+
+  h1{
+    text-align: center;
+  } 
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; 
+    ::ng-deep mat-card-content{
+      height: 100%;
+      min-height: 130px;    
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      
+      .footer-item{
+        text-align: right;
+      }
+    }
+
+    .set-item{
+      cursor: pointer;
+      transition: .7s all ease;
+      border: 5px solid transparent;
+      &:hover{
+        border: 5px solid #c35427;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+}
