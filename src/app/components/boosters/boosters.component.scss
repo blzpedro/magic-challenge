@@ -9,7 +9,22 @@ h1{
   ::ng-deep mat-card-content{
     height: 100%;
     min-height: 130px;    
-    display: flex;
+    img{
+      margin-left: auto;
+      display: block;
+    }
+    .flex{
+      display: flex;
+      gap: 20px;
+      .name{
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
+    .icons{
+      width: fit-content;
+      margin-left: auto;
+    }
   }
 
   .set-item{

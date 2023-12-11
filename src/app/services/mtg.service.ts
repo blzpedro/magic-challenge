@@ -12,8 +12,8 @@ export class MtgService {
   private url = 'https://api.magicthegathering.io/v1';
   setsResponseSubject = new BehaviorSubject<Sets | undefined>(undefined);
   setsResponse$ = this.setsResponseSubject.asObservable();
-  private spinnerVisible = new BehaviorSubject<boolean>(false);
-  spinnerVisibility$ = this.spinnerVisible.asObservable();
+  spinnerVisibleSubject = new BehaviorSubject<boolean>(false);
+  spinnerVisibility$ = this.spinnerVisibleSubject.asObservable();
   
   constructor(private http: HttpClient) { }
 
@@ -26,10 +26,10 @@ export class MtgService {
   }
 
   showSpinner() {
-    this.spinnerVisible.next(true);
+    this.spinnerVisibleSubject.next(true);
   }
 
   hideSpinner() {
-    this.spinnerVisible.next(false);
+    this.spinnerVisibleSubject.next(false);
   }
 }

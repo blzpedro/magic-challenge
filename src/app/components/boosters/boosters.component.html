@@ -2,19 +2,25 @@
   <h1 class="text-primary">Suas cartas do pacote aberto</h1>
   <section class="results-grid">
     <ng-container *ngFor="let card of cards; let i = index">
-      <mat-card>
-          <mat-card-content>
+      <mat-card id="card-box-{{i}}">
+        <mat-card-content>
+          <div class="flex icons">
+            <ng-container *ngFor="let identity of card.colorIdentity;let z = index">
+              <img src="{{'../../../../../assets/'+identity+'.png'}}" alt="" width="15px" id="identity-image-{{z}}" />
+            </ng-container>
+          </div>
+          <div class="flex">
             <div>
-              <img src={{card.imageUrl}} alt="Imagem card">
+              <img src={{card.imageUrl}} alt="Imagem card" id="card-image-{{i}}">
             </div>
             <div>
-              <p>{{card.name}}</p>
-              <p>{{card.manaCost}}</p>
-              <p>{{card.colorIdentity}}</p>
-              <p>{{card.text}}</p>
+              <p class="name" id="card-name-{{i}}">{{card.name}}</p>
+              <p id="card-mana-{{i}}">{{card.manaCost}}</p>
+              <p id="card-text-{{i}}">{{card.text || '-'}}</p>
             </div>
-          </mat-card-content>
-        </mat-card>
+          </div>
+        </mat-card-content>
+      </mat-card>
     </ng-container>
   </section>
 </div>

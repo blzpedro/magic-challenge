@@ -33,7 +33,7 @@ export class FilterComponent implements OnInit {
     },
   ] 
   
-  constructor(private fb: FormBuilder, private mtgService: MtgService){}
+  constructor(private fb: FormBuilder, public mtgService: MtgService){}
   
   ngOnInit() {
     this.filterForm = this.fb.group({

@@ -1,8 +1,8 @@
 <div class="sets-results" *ngIf="creatureCards.length !== 30">
   <ng-container *ngIf="setsList?.length">
     <h1 class="text-primary">Sets</h1>
-    <section class="results-grid">
-      <mat-card *ngFor="let item of setsList" class="set-item" (click)="creatureCards = [];getBoosterBySet(item)">
+    <section class="results-grid" id="sets-results">
+      <mat-card *ngFor="let item of setsList;let i = index" class="set-item" id="set-{{i}}" (click)="creatureCards = [];getBoosterBySet(item)">
         <mat-card-content>
           <p>{{item.name}}</p>
           <p>{{item.block || '-'}}</p>
@@ -12,12 +12,12 @@
     </section>
   </ng-container>
   <ng-container *ngIf="setsList && setsList.length === 0">
-    <h1 class="text-primary">Nenhum resultado encontrado.</h1>
+    <h1 class="text-primary" id="empty-results">Nenhum resultado encontrado.</h1>
   </ng-container>
   <ng-container *ngIf="!setsList">
     <h1 class="text-primary">Busque por sets a partir do filtro.</h1>
   </ng-container>
 </div>
-<div class="boosters-results" *ngIf="creatureCards.length === 30">
+<div class="boosters-results" *ngIf="creatureCards.length === 30" id="boosters-results">
   <app-boosters [cards]="creatureCards"></app-boosters>
 </div>
